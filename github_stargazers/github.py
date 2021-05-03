@@ -104,6 +104,8 @@ class GitHub:
 
                     star_gazers = response.json()
                     list_of_results.extend(star_gazers)
+                    # I can un-comment before deployment to ensure will ensure
+                    # the API rate limit per hour is not exceeded
                     # self.sleep_gh_rate_limit()
                     if not url:
                         break
