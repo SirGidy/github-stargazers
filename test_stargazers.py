@@ -1,11 +1,12 @@
-import datetime
-import unittest
-import httpx
 import asyncio
+import csv
+import datetime
+import httpx
+import unittest
 
-from github_stargazers.github import GitHub, UsernameRepositoryError
-#  extract_user_and_repo, get_repository_url, github_query_async, retrieve_repo_stargazers
+from github_stargazers.github import GitHub, UsernameRepositoryError, TooManyRequestsHttpError, UrlNotFoundError
 from tests.samples import STAR_GAZERS
+from unittest.mock import patch, mock_open
 
 
 class TestStarGazers(unittest.TestCase):

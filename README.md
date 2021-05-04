@@ -62,4 +62,4 @@ The above command generates a csv file with the name format `stargazers-{0}-{1}-
 
 ## Note
 
-stargazers makes unauthenticated requests to the GitHub API and is, therefore, subject to rate limits.
+stargazers makes unauthenticated requests to the GitHub API and is, therefore, subject to rate limits. 
