@@ -191,9 +191,7 @@ class GitHub:
                 headers={'Accept': self.__ACCEPT_PARAM},
             )
             response_await.raise_for_status()
-        except httpx.RequestError as exc:
-            raise
-        except httpx.HTTPStatusError as exc:
+        except (httpx.RequestError, httpx.HTTPStatusError) as exc:
             raise
 
         return response_await

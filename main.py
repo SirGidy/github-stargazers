@@ -7,7 +7,8 @@ from click import (command, option)
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 
-from github_stargazers.github import GitHub, UsernameRepositoryError, TooManyRequestsHttpError, UrlNotFoundError
+from github_stargazers.github import GitHub, UsernameRepositoryError, \
+    TooManyRequestsHttpError, UrlNotFoundError
 
 
 @command()
@@ -54,14 +55,9 @@ def get_stargazers(repo: str):
             print(f'{filename} generated successfully')
             return
         print(f'Could not generate stargazers for {repo_name}')
-    except (UsernameRepositoryError) as exception_message:
-        print(f'Argument is not valid, {exception_message}')
-        return
-    except (TooManyRequestsHttpError) as exception_message:
-        print(exception_message)
-        return
-    except (UrlNotFoundError) as exception_message:
-        print(exception_message)
+    except (UsernameRepositoryError, TooManyRequestsHttpError,
+            UrlNotFoundError) as exception_message:
+        print(f' {exception_message}')
         return
     except Exception as exception_message:
         print(f'Error generating file  :  {exception_message}')
